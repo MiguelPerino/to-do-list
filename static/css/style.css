@@ -1,6 +1,10 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
     font-family: Arial, Helvetica, sans-serif;
-    background-color: #b0aeae;
+    background-color: #89cff0;
 }
 
 .container {
@@ -17,7 +21,6 @@ h1 {
 }
 
 input {
-    width: 94%;
     padding: 10px;
     margin: 1px solid #ccc;
     border-radius: 5px;
@@ -75,11 +78,18 @@ button:hover {
 .btn-primary {
     background-color: #4caf50;
     color: white;
+    width: fit-content;
+    padding: 15px 30px;
 }
 
 .btn-secondary {
     background-color: #2196f3;
     color: white;
+    padding: 10px 30px;    /* Reduzi um pouco o padding que estava 15px */
+    text-decoration: none;
+    border-radius: 8px;
+    display: inline-block;
+    width: auto;
 }
 
 .btn:hover {
@@ -91,14 +101,14 @@ button:hover {
     max-width: 600px;
     margin: 0 auto;
     text-align: center;
-    background: rgb(72, 3, 234);
+    background: #4169E1;
     padding: 60px;
     border-radius: 60px;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
 .home-subtittle {
-    color: rgb(121, 243, 0);
+    color: #000080;
     margin-bottom: 30px;
 }
 
@@ -108,3 +118,39 @@ button:hover {
     display: block;
     margin: 0 auto 20px auto;
 }
+
+.login-prompt {
+    margin-top: 20px;
+}
+
+.form-cadastro input,
+.form-login input {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}   
+
+.site-name {
+    font-family: 'Poppins', sans-serif;
+    font-size: 26px;
+    margin: 0;
+    color: rgb(255, 255, 255); 
+}
+
+.logo-header {
+    width: 45px;       /* Tamanho menor para a logo no cabeçalho */
+    height: 45px;
+    border-radius: 50%; /* Mantém ela redondinha */
+    object-fit: cover;
+    border: 2px solid white;
+}
+

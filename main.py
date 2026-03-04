@@ -17,7 +17,7 @@ def home():
 
 @app.route('/cadastro', methods=['GET'])
 def cadastro_page():
-    return render_template('cadastro.html')
+    return render_template('index.html') #mudei de cadastro.html para index.html
 
 @app.route('/login', methods=['GET', 'POST'])   
 def login_page():
@@ -59,7 +59,7 @@ def cadastro():
     try:
         insert_user(nome, email, senha_hash)
         flash('Usuário cadastrado com sucesso', 'success')
-        return redirect(url_for('home'))
+        return redirect(url_for('login_page'))
     
     except sqlite3.IntegrityError:
         flash('Email ja cadastrado', 'error')

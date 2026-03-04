@@ -3,25 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>TurtleSteps | Minhas Tarefas</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    <img class="logo" src="{{ url_for('static', filename='img/images.jpeg') }}" alt="Logo">
-
-
-
+    
 </head>
 <body>
+    <header class="header-container">
+    <h1 class="site-name">TurtleSteps</h1> <img class="logo-header" src="{{ url_for('static', filename='img/images.jpeg') }}" alt="Logo"> </header>
+
     <div class="home-container">
-    <h1>Bem vindo!</h1>
+    <!-- <img class="logo" src="{{ url_for('static', filename='img/images.jpeg') }}" alt="Logo"> -->
+
+    <h1>Crie sua conta</h1> 
 
     <p class="home-subtittle">
-        Crie sua conta ou faça login para continuar
+        Preencha os dados abaixo para começar
     </p>
-
+<!-- 
     <div class="actions">
         <a href="{{ url_for('cadastro_page') }}" class="btn btn-primary"> Cadastrar</a>
         <a href="{{ url_for('login_page') }}" class="btn btn-secondary"> Login</a>
-    </div> 
+    </div>  -->
 
     {% with messages = get_flashed_messages(with_categories=true) %}
         {% if messages %}   
@@ -32,7 +34,19 @@
             {% endfor %}
         {% endif %}
     {% endwith %}
-</div>
+
+    <form action="/cadastro" method="post" class="form-cadastro">
+        <input type="text" name="nome" placeholder="Digite seu nome" required><br>
+        <input type="email" name="email" placeholder="Informe seu email" required><br>
+        <input type="password" name="senha" placeholder="Informe sua senha" required><br>
+        <button type="submit" class="btn btn-primary">Cadastrar</button>
+    </form>
+
+    <hr> <div class="login-prompt">
+        <p>Já tem conta no site?</p>
+        <a href="{{ url_for('login_page') }}" class="btn btn-secondary">Fazer Login</a>
+        </div>
+    </div>  
 
 </body>
 </html>

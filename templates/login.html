@@ -8,8 +8,12 @@
 
 </head>
 <body>
+    <header class="header-container">
+    <h1 class="site-name">TurtleSteps</h1> <img class="logo-header" src="{{ url_for('static', filename='img/images.jpeg') }}" alt="Logo"> </header>
+
+
     <div class="container">
-    <h1> login</h1>
+    <h1> Login</h1>
 
     {% with messages = get_flashed_messages(with_categories=true) %}
       {% for category, msg in messages %}
@@ -17,7 +21,7 @@
       {% endfor %}
     {% endwith %}
     
-    <form action="/login" method="post">
+    <form action="/login" method="post" class="form-login">
         <input type="email" name="email" placeholder="Email">
         <input type="password" name="senha" placeholder="Senha">
         <button type="submit">Entrar</button>
