@@ -4,6 +4,7 @@ from models.task import *
 import sqlite3
 from werkzeug.security import check_password_hash, generate_password_hash
 import os
+from datetime import date
 
 app = Flask(__name__)
 
@@ -93,6 +94,12 @@ def adicionar_tarefa():
     if not titulo:
         flash('O título da tarefa é obrigatório', 'error')
         return redirect(url_for('tarefas'))
+    if data_limite:
+        data = date.fromisoformat(data_limite)
+        if data < date.today():
+            flash('A data não pode ser no passado', 'error')
+            return redirect(url_for('tarefas'))
+        
     insert_task(session['user_id'], titulo, descricao, data_limite)
     flash('Tarefa adicionada', 'success')
     return redirect(url_for('tarefas'))
